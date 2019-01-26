@@ -20,7 +20,7 @@ import java.net.URL;
 public class MainActivity extends AppCompatActivity {
     EditText editText;
     TextView textView;
-    int edi;
+    String number ="http://numbersapi.com/";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         editText=findViewById(R.id.CityEditText);
         textView=findViewById(R.id.textView);
-       
+
 
 
     }
@@ -46,22 +46,10 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(this, "enter the city name", Toast.LENGTH_SHORT).show();
                 textView.setText("");
             }else {
-                String weatherdetails = weatherinfo.execute("http://numbersapi.com/"+editText.getText().toString()).get();
+                String weatherdetails = weatherinfo.execute(number+editText.getText().toString()).get();
                 Log.i("get",weatherdetails);
-//                JSONObject jsonObject = new JSONObject(weatherdetails);
-//                String weather = jsonObject.getString("weather");
-//
-//                JSONArray jsonArray = new JSONArray(weather);
-//
-//                String main = "";
-//                String description = "";
-//
-//                for (int i = 0; i < jsonArray.length(); i++) {
-//                    JSONObject arrrobject = jsonArray.getJSONObject(i);
-//                    main = arrrobject.getString("main");
-//                    description = arrrobject.getString("description");
-//                }
-//                textView.setText("main :" + main + "\n" + "description :" + description);
+
+                textView.setText(weatherdetails);
 
             }
         }catch (Exception e)

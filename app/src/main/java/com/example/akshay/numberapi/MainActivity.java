@@ -3,6 +3,7 @@ package com.example.akshay.numberapi;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -19,16 +20,23 @@ import java.net.URL;
 public class MainActivity extends AppCompatActivity {
     EditText editText;
     TextView textView;
+    int edi;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        editText=findViewById(R.id.CityEditText);
+        textView=findViewById(R.id.textView);
+       
+
+
     }
 
 
 
     public void getweather(View view)
+
     {
         Weatherinfo weatherinfo =new Weatherinfo();
 
@@ -38,23 +46,22 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(this, "enter the city name", Toast.LENGTH_SHORT).show();
                 textView.setText("");
             }else {
-                String weatherdetails = weatherinfo.execute("https://api.openweathermap.org/data/2.5/weather?q=" +
-                        editText.getText().toString() + "&APPID=272e2cf91f2be45773876e2ea9c263fb").get();
-                // Log.i("get",weatherdetails);
-                JSONObject jsonObject = new JSONObject(weatherdetails);
-                String weather = jsonObject.getString("weather");
-
-                JSONArray jsonArray = new JSONArray(weather);
-
-                String main = "";
-                String description = "";
-
-                for (int i = 0; i < jsonArray.length(); i++) {
-                    JSONObject arrrobject = jsonArray.getJSONObject(i);
-                    main = arrrobject.getString("main");
-                    description = arrrobject.getString("description");
-                }
-                textView.setText("main :" + main + "\n" + "description :" + description);
+                String weatherdetails = weatherinfo.execute("http://numbersapi.com/"+editText.getText().toString()).get();
+                Log.i("get",weatherdetails);
+//                JSONObject jsonObject = new JSONObject(weatherdetails);
+//                String weather = jsonObject.getString("weather");
+//
+//                JSONArray jsonArray = new JSONArray(weather);
+//
+//                String main = "";
+//                String description = "";
+//
+//                for (int i = 0; i < jsonArray.length(); i++) {
+//                    JSONObject arrrobject = jsonArray.getJSONObject(i);
+//                    main = arrrobject.getString("main");
+//                    description = arrrobject.getString("description");
+//                }
+//                textView.setText("main :" + main + "\n" + "description :" + description);
 
             }
         }catch (Exception e)

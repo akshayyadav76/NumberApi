@@ -22,7 +22,7 @@ import java.net.URL;
 public class MainActivity extends AppCompatActivity {
     EditText editText;
     TextView textView;
-    String number="http://numbersapi.com/",add="math";
+    String number="http://numbersapi.com/",add="/math";
     RadioGroup radioGroup;
 
 
@@ -45,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
         switch (radioid)
         { case R.id.radio0:
             number ="http://numbersapi.com/";
-            add="math";
+            add="/math";
 
             break;
             case R.id.radio2:
@@ -55,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
 
             case R.id.radio3:
                 number ="http://numbersapi.com/";
-                add ="year";
+                add ="/year";
                 break;
 
         }

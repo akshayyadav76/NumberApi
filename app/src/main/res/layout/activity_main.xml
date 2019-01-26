@@ -7,14 +7,79 @@
     tools:context=".MainActivity">
 
 
+    <TextView
+        android:id="@+id/selecttime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/radioGroup"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="7dp"
+        android:gravity="center"
+        android:text="Select The Number Fact"
+        android:textSize="30sp"
+        android:typeface="serif" />
+
+    <RadioGroup
+        android:id="@+id/radioGroup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginBottom="406dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toTopOf="parent">
+
+
+        <RadioButton
+            android:id="@+id/radio0"
+            android:layout_width="0dp"
+            android:onClick="pressed"
+            android:checked="true"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textSize="20sp"
+            android:button="@null"
+            android:drawableBottom="?android:attr/listChoiceIndicatorSingle"
+            android:gravity="center_horizontal|bottom"
+            android:text="Math" />
+
+        <RadioButton
+            android:id="@+id/radio2"
+            android:layout_width="0dp"
+            android:onClick="pressed"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textSize="20sp"
+            android:button="@null"
+            android:drawableBottom="?android:attr/listChoiceIndicatorSingle"
+            android:gravity="center_horizontal|bottom"
+            android:text="Trivia" />
+
+        <RadioButton
+            android:id="@+id/radio3"
+            android:layout_width="0dp"
+            android:onClick="pressed"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textSize="20sp"
+            android:button="@null"
+            android:drawableBottom="?android:attr/listChoiceIndicatorSingle"
+            android:gravity="center_horizontal|bottom"
+            android:text="Data" />
+
+
+    </RadioGroup>
+
     <EditText
         android:id="@+id/CityEditText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="73dp"
-        android:layout_marginTop="80dp"
+        android:layout_marginStart="76dp"
+        android:layout_marginTop="132dp"
         android:ems="10"
         android:hint="Enter the City"
         android:inputType="number" />
@@ -25,8 +90,8 @@
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="106dp"
-        android:layout_marginTop="316dp"
+        android:layout_marginStart="121dp"
+        android:layout_marginTop="361dp"
         android:onClick="getweather"
         android:text="Show Weather" />
 
@@ -41,6 +106,7 @@
         android:gravity="center"
         android:paddingBottom="70sp"
         android:text=""
-
         android:textSize="34sp" />
+
+
 </RelativeLayout>
